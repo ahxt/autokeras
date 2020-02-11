@@ -8,6 +8,15 @@ import tensorflow as tf
 
 import autokeras as ak
 
+gpus = tf.config.experimental.list_physical_devices('GPU')
+print( gpus )
+for gpu in gpus:
+    tf.config.experimental.set_memory_growth(gpu, True)
+
+
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+
 
 def imdb_raw():
     max_features = 20000
